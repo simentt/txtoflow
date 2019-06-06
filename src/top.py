@@ -36,57 +36,6 @@ class FlowLexer(sly.Lexer):
     #    print('Line %d: Bad character %r' % (self.lineno, t.value[0]))
     #    self.index += 1
 
-'''
-class FlowParser(sly.Parser):
-    "Build AST"
-
-    # Get the tokens
-    tokens = FlowLexer.tokens
-
-    def __init__(self):
-        self.dot = pgv.AGraph(strict=False, directed=True, rankdir='TD')
-        self.nodes = []
-
-    @_('ELSE')
-    def show(self, p):
-        # print (f"Else of Previous If")
-        return self.dot
-
-    @_('IF COND')
-    def show(self, p):
-        return self.draw(
-            p[1][1:-1],
-            color='red',
-            shape='diamond'
-        )
-    
-    @_('STATE')
-    def show(self, p):
-        return self.draw(
-            p[0][0:-1],
-            shape='rectangle',
-            style='rounded,filled',
-            fillcolor='yellow'
-        )
-
-    @_('PARAN_OPEN', 'PARAN_CLOSE')
-    def show(self, p):
-        # print (f"Ignore parans for now")
-        return self.dot
-
-    def draw(self, node, **kwargs):
-        "Draw the dot"
-        print(node)
-        self.dot.add_node(node, **kwargs)
-        self.nodes.append(node)
-
-        # Always add edge
-        if len(self.nodes) > 1:
-            self.dot.add_edge(self.nodes[-2], self.nodes[-1])
-
-        return self.dot
-'''
-
 class FlowBuilder:
     """Builds Flow chart"""
 
@@ -104,6 +53,7 @@ class FlowBuilder:
             'color':'red'
         }
     }
+    
     def __init__(self, tokens):
         '''Initialize'''
         self.dot = pgv.AGraph(strict=True, directed=True, rankdir='TD')
@@ -191,7 +141,6 @@ def main():
 
     builder.write('flowchart.dot')
     os.system('dot -T jpg -o flowchart.jpg flowchart.dot')
-
 
 if __name__ == '__main__':
     main()
