@@ -121,8 +121,9 @@ class FlowBuilder:
         "Returns the last token whose value is not in the list of given values to ignore"
 
         if valuesToIgnore == None:
-            valuesToIgnore = ['{'] # , '}']
+            valuesToIgnore = ['if', '{'] # , '}']
         else:
+            valuesToIgnore.append('if')
             valuesToIgnore.append('{')
             # valuesToIgnore.append('}')
         
@@ -150,7 +151,7 @@ class FlowBuilder:
         if token.type == 'COND':
             token.value = token.value[1:-1]
         
-        # When a closing } is found, pop all until opening {
+        # When a closing } is found, pop all until opening { - and nothing much to do anyway
         if len(self.stack) > 1 and self.stack[-1].value == '}':
             self.popUntil('{')
             return
@@ -165,6 +166,9 @@ class FlowBuilder:
                 lastToken = self.getLastToken()
                 assert lastToken != None, "Probable syntax error"
 
+                # if token.value == 'Addr[31:28] == ICCM1 base':
+                print([t.value for t in self.stack])
+
                 if lastToken.type == 'ELSE':
                     lastToken = self.getLastToken(['else'])
                     self.dot.add_edge(lastToken.value, token.value, label='False')
@@ -177,8 +181,7 @@ class FlowBuilder:
             pass
 
         # Put it on stack at last
-        if token.type not in ['IF']:
-            self.stack.append(token)
+        self.stack.append(token)
         
 
     def write(self, file):
