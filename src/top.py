@@ -100,13 +100,13 @@ class FlowBuilder:
         },
         'COND': {
             'shape':'diamond',
-            'style':'rounded',
+            # 'style':'rounded',
             'color':'red'
         }
     }
     def __init__(self, tokens):
         '''Initialize'''
-        self.dot = pgv.AGraph(strict=False, directed=True, rankdir='TD')
+        self.dot = pgv.AGraph(strict=True, directed=True, rankdir='TD')
         self.tokens = tokens
         self.stack = []
         # self.dot.layout()
@@ -152,7 +152,7 @@ class FlowBuilder:
             token.value = token.value[1:-1]
         
         # When a closing } is found, pop all until opening { - and nothing much to do anyway
-        if len(self.stack) > 1 and self.stack[-1].value == '}':
+        if len(self.stack) and (token.value == '}'):
             self.popUntil('{')
             return
 
@@ -162,12 +162,9 @@ class FlowBuilder:
             self.dot.add_node(token.value, **self.attr[token.type])
 
             # Add edge
-            if len(self.stack) > 1:
+            if len(self.stack):
                 lastToken = self.getLastToken()
                 assert lastToken != None, "Probable syntax error"
-
-                # if token.value == 'Addr[31:28] == ICCM1 base':
-                print([t.value for t in self.stack])
 
                 if lastToken.type == 'ELSE':
                     lastToken = self.getLastToken(['else'])
@@ -176,9 +173,6 @@ class FlowBuilder:
                     self.dot.add_edge(lastToken.value, token.value, label='True')
                 else:
                     self.dot.add_edge(lastToken.value, token.value)
-        else:
-            # print(f"Unhandled token: {token.type}")
-            pass
 
         # Put it on stack at last
         self.stack.append(token)
