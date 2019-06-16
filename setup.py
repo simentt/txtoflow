@@ -2,12 +2,14 @@ import setuptools
 
 setuptools.setup(
     name="txtoflow",
-    version="0.1.0",
+    version="0.1.2",
     author="Krishna",
     author_email="krishna.vijay4444@gmail.com",
     description="Library to generate flowcharts from pseudo code",
     long_description=open('README.md').read(),
+    keywords=['automatic flowchart', 'code2flow', 'text2flow', 'text to flowchart', 'txtoflow'],
     platforms=['any'],
+    scripts=['bin/txtoflow'],
     license='MIT License',
     long_description_content_type="text/markdown",
     url="https://krishkasula.github.io/txtoflow",
