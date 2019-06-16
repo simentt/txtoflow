@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="txtoflow",
-    version="0.2.1",
+    version="0.2.3",
     author="Krishna",
     author_email="krishna.vijay4444@gmail.com",
     description="Library to generate flowcharts from pseudo code",
