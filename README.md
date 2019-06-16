@@ -4,4 +4,4 @@ To generate flow charts from simple pseudo-codes
 
 ## Examples
 
-Examples can be found [here](examples/)
+Examples can be found [here](https://github.com/KrishKasula/txtoflow/tree/master/examples)
