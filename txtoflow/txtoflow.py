@@ -215,7 +215,7 @@ def generate(code=None, debug=False):
                 self.connectFrom(element['cond'], lastElement, firstEdgeName)
 
                 # Handle while body
-                lastElement = self.handle(element['body'], element['cond'], 'True')
+                lastElement = self.handle(element['body'], [element['cond']], 'True')
 
                 # Connect back to condition
                 self.connectFrom(element['cond'], lastElement)
