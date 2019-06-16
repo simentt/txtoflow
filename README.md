@@ -28,7 +28,9 @@ txtoflow.generate(
 )
 ```
 
-Will generate an image named `flowchart.jpg` in current dir that looks like ![this](https://github.com/KrishKasula/txtoflow/tree/master/examples/flowchart.jpg?raw=true "Simple FlowChart")
+Will generate an image named `flowchart.jpg` in current dir that looks like below
+
+![](https://raw.githubusercontent.com/KrishKasula/txtoflow/master/examples/flowchart.jpg "Simple FlowChart")
 
 All the conditions and states can be arbitrary strings too
 
@@ -55,7 +57,9 @@ txtoflow.generate(
 )
 ```
 
-Will still generate image like ![this](https://github.com/KrishKasula/txtoflow/tree/master/examples/strings.jpg?raw=true "Strings FlowChart")
+Will still generate image like below
+
+![](https://raw.githubusercontent.com/KrishKasula/txtoflow/master/examples/strings.jpg "Strings FlowChart")
 
 ## Examples
 
