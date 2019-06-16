@@ -9,25 +9,23 @@ The Python library can be used to generate flowcharts from pseudocode.
 ## Usage
 
 ```python3
+from txtoflow import txtoflow
 
-  from txtoflow import txtoflow
-
-  txtoflow.generate(
-      '''
-      if (A) {
-          B;
-      } else {
-          C;
-          D;
-          while (E) {
-              F;
-          }
-          G;
-      }
-      H;
-      '''
-  )
-
+txtoflow.generate(
+    '''
+    if (A) {
+        B;
+    } else {
+        C;
+        D;
+        while (E) {
+            F;
+        }
+        G;
+    }
+    H;
+    '''
+)
 ```
 
 Will generate an image named `flowchart.jpg` in current dir that looks like [this](https://github.com/KrishKasula/txtoflow/tree/master/examples/flowchart.jpg?raw=true)
