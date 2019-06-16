@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="txtoflow",
-    version="0.0.1",
+    version="0.1.0",
     author="Krishna",
     author_email="krishna.vijay4444@gmail.com",
     description="Library to generate flowcharts from pseudo code",
