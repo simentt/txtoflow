@@ -8,11 +8,10 @@ import fileinput
 import sly
 import pygraphviz as pgv
 import json
-import os
 import sys
 
 
-def generate(code=None, debug=False):
+def generate(code=None, debug=False, outFile='flowchart.jpg'):
     "Top function to generate flow chart"
 
     class FlowLexer(sly.Lexer):
@@ -235,7 +234,9 @@ def generate(code=None, debug=False):
 
         def write(self, file):
             '''Write to DOT file'''
-            self.dot.write(file)
+            # self.dot.write(file)
+            self.dot.layout(prog='dot')
+            self.dot.draw(file)
 
 
     '''The Main'''
@@ -256,10 +257,7 @@ def generate(code=None, debug=False):
     # Build the dot file
     builder = FlowBuilder(parser.parse(lexer.tokenize(code)))
 
-    builder.write('flowchart.dot')
-
-    # Direct rendering isn't working, use system instead
-    os.system('dot -T jpg -o flowchart.jpg flowchart.dot')
+    builder.write(outFile)
 
 
 def main():
