@@ -28,7 +28,7 @@ txtoflow.generate(
 )
 ```
 
-Will generate an image named `flowchart.jpg` in current dir that looks like [this](https://github.com/KrishKasula/txtoflow/tree/master/examples/flowchart.jpg?raw=true)
+Will generate an image named `flowchart.jpg` in current dir that looks like ![](https://github.com/KrishKasula/txtoflow/tree/master/examples/flowchart.jpg?raw=true)
 
 ## Examples
 
