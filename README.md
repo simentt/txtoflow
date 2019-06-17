@@ -8,11 +8,11 @@ You may need to install the following graphviz tools and libraries first
 
 On Ubuntu ...
 
-    `sudo apt-get install graphviz libgraphviz-dev pkg-config`
+    sudo apt-get install graphviz libgraphviz-dev pkg-config
 
 Then
 
-    `pip install txtoflow`
+    pip install txtoflow
 
 ## Usage
 
