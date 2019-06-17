@@ -4,7 +4,15 @@ The Python library can be used to generate flowcharts from pseudo-code.
 
 ## Installation
 
-  `pip install txtoflow`
+You may need to install the following graphviz tools and libraries first
+
+On Ubuntu ...
+
+    `sudo apt-get install graphviz libgraphviz-dev pkg-config`
+
+Then
+
+    `pip install txtoflow`
 
 ## Usage
 
